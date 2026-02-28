@@ -1,0 +1,31 @@
+# Insert at Beginning (Linked List)
+
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* insertBeginning(Node* head, int value) {
+    Node* newNode = new Node{value, head};
+    return newNode;
+}
+
+void display(Node* head) {
+    while (head) {
+        cout << head->data << " ";
+        head = head->next;
+    }
+}
+
+int main() {
+    Node* head = NULL;
+
+    head = insertBeginning(head, 30);
+    head = insertBeginning(head, 20);
+    head = insertBeginning(head, 10);
+
+    display(head);
+}
