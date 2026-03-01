@@ -1,0 +1,32 @@
+# Delete Node (by value)
+
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* deleteNode(Node* head, int key) {
+    if (!head) return head;
+
+    if (head->data == key) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        return head;
+    }
+
+    Node* curr = head;
+    while (curr->next && curr->next->data != key)
+        curr = curr->next;
+
+    if (curr->next) {
+        Node* temp = curr->next;
+        curr->next = temp->next;
+        delete temp;
+    }
+
+    return head;
+}
