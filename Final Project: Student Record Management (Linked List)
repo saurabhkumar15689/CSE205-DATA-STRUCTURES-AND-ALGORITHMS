@@ -1,0 +1,57 @@
+# Final Project: Student Record Management (Linked List)
+
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int roll;
+    string name;
+    Node* next;
+};
+
+Node* head = NULL;
+
+void addStudent(int roll, string name) {
+    Node* newNode = new Node();
+    newNode->roll = roll;
+    newNode->name = name;
+    newNode->next = head;
+    head = newNode;
+}
+
+void displayStudents() {
+    Node* temp = head;
+
+    while (temp != NULL) {
+        cout << "Roll: " << temp->roll << " Name: " << temp->name << endl;
+        temp = temp->next;
+    }
+}
+
+void searchStudent(int roll) {
+    Node* temp = head;
+
+    while (temp != NULL) {
+        if (temp->roll == roll) {
+            cout << "Student Found: " << temp->name << endl;
+            return;
+        }
+        temp = temp->next;
+    }
+
+    cout << "Student Not Found";
+}
+
+int main() {
+    addStudent(1, "Rahul");
+    addStudent(2, "Amit");
+    addStudent(3, "Saurabh");
+
+    displayStudents();
+
+    cout << endl;
+
+    searchStudent(2);
+
+    return 0;
+}
