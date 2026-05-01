@@ -1,0 +1,14 @@
+# Product of Array
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n,a[100],prod=1;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        prod*=a[i];
+    }
+    cout<<prod;
+}
