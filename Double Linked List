@@ -1,0 +1,27 @@
+# Double Linked List
+
+#include <iostream>
+using namespace std;
+
+struct Node{
+    int data;
+    Node* prev;
+    Node* next;
+};
+
+int main(){
+    Node* first=new Node{1,NULL,NULL};
+    Node* second=new Node{2,NULL,NULL};
+    Node* third=new Node{3,NULL,NULL};
+
+    first->next=second;
+    second->prev=first;
+    second->next=third;
+    third->prev=second;
+
+    Node* temp=first;
+    while(temp){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+}
