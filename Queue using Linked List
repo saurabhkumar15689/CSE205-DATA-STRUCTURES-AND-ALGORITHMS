@@ -1,0 +1,37 @@
+# Queue using Linked List
+
+#include <iostream>
+using namespace std;
+
+struct Node{
+    int data;
+    Node* next;
+};
+
+Node* front=NULL;
+Node* rear=NULL;
+
+void enqueue(int val){
+    Node* temp=new Node{val,NULL};
+    if(rear==NULL){
+        front=rear=temp;
+        return;
+    }
+    rear->next=temp;
+    rear=temp;
+}
+
+void display(){
+    Node* temp=front;
+    while(temp){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+}
+
+int main(){
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    display();
+}
