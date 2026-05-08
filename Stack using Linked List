@@ -1,0 +1,31 @@
+# Stack using Linked List
+
+#include <iostream>
+using namespace std;
+
+struct Node{
+    int data;
+    Node* next;
+};
+
+Node* top=NULL;
+
+void push(int val){
+    Node* temp=new Node{val,top};
+    top=temp;
+}
+
+void display(){
+    Node* temp=top;
+    while(temp){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+}
+
+int main(){
+    push(5);
+    push(10);
+    push(15);
+    display();
+}
